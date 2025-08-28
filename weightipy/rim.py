@@ -613,7 +613,7 @@ class Rake:
             if min_cap is not None:
                 min_cap -= 0.0001
 
-        weights = self.dataframe[self.weight_column_name].values
+        weights = self.dataframe[self.weight_column_name].to_numpy(dtype=float).copy()
 
         for iteration in range(1, self.max_iterations+1):
             old_weights = weights.copy()
